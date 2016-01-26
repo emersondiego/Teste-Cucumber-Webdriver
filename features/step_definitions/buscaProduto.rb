@@ -13,15 +13,32 @@ Dado(/^realize uma busca pelo produto tv$/) do
   @navegador.find_element(:css, "button.search-icon").click
 end
 
-Dado(/^verei a mensagem TV encontrada$/) do
+Dado(/^verei resultados de TVs$/) do
   (@navegador.find_element(:css, "h1.search-title").text).should == "Resultados de busca para \"tv\""
 end
 
-Quando(/^clicar em Add ao carrinho o produto$/) do
-  !30.times{ break if (element_present?(:xpath, "(//button[@type='button'])[5]") rescue false); sleep 1 }
-  @driver.find_element(:xpath, "(//button[@type='button'])[5]").click
+Dado(/^clicar no produto escolhido$/) do
+  #require 'pry';binding.pry
+  !15.times{ break if (element_present?(:css, "(li.shelf-item:nth-child(2) div:nth-child(2) a:nth-child(1) span:nth-child(1)") rescue false); sleep 1 }
+  @navegador.find_element(:css, "li.shelf-item:nth-child(2) div:nth-child(2) a:nth-child(1) span:nth-child(1)").click
 end
 
-Então(/^verei o detalhes do produto$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+Dado(/^adicionar produto no carrinho$/) do
+  sleep 2
+  @navegador.find_element(:xpath, "(//button[@type='button'])[2]").click
 end
+
+
+Dado(/^escolher garantia extendida$/) do
+  sleep 1
+  @navegador.find_element(:id, "navegaCarrinho").click
+end
+
+Quando(/^acessar o carrinho$/) do
+  @navegador.find_element(:css, "span.cart-icon").click
+end
+
+Entao(/^valide que o produto esta no carrinho$/) do
+
+end
+

@@ -8,7 +8,10 @@ Cenário: Validação de produto no carrinho
 
   Dado que eu esteja no site do walmart
     E realize uma busca pelo produto tv
-    E verei a mensagem TV encontrada
-    E clicar em Add ao carrinho o produto
-  Então verei o detalhes do produto
+    E verei resultados de TVs
+    E clicar no produto escolhido
+    E adicionar produto no carrinho
+    E escolher garantia extendida
+  Quando acessar o carrinho
+  Entao valide que o produto esta no carrinho
 

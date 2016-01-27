@@ -24,13 +24,12 @@ Dado(/^clicar no produto escolhido$/) do
 end
 
 Dado(/^adicionar produto no carrinho$/) do
-  sleep 2
+  sleep 3
   @navegador.find_element(:xpath, "(//button[@type='button'])[2]").click
 end
 
-
 Dado(/^escolher garantia extendida$/) do
-  sleep 1
+  sleep 2
   @navegador.find_element(:id, "navegaCarrinho").click
 end
 
@@ -39,6 +38,6 @@ Quando(/^acessar o carrinho$/) do
 end
 
 Entao(/^valide que o produto esta no carrinho$/) do
-
+  (@navegador.find_element(:css, "div.price-low").text).should == "Por R$ 1.799,00"
 end
 

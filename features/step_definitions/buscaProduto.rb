@@ -14,7 +14,7 @@ Dado(/^realize uma busca pelo produto tv$/) do
 end
 
 Dado(/^verei resultados de TVs$/) do
-  (@navegador.find_element(:css, "h1.search-title").text).should == "Resultados de busca para \"tv\""
+  (@navegador.find_element(:css, "h1.search-title").text) == "Resultados de busca para \"tv\""
 end
 
 Dado(/^clicar no produto escolhido$/) do
@@ -38,6 +38,6 @@ Quando(/^acessar o carrinho$/) do
 end
 
 Entao(/^valide que o produto esta no carrinho$/) do
-  (@navegador.find_element(:css, "div.price-low").text).should == "Por R$ 1.799,00"
+  (@navegador.find_element(:css, "div.price-low").text) == "Por R$ 1.799,00"
 end
 
